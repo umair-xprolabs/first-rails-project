@@ -1,0 +1,21 @@
+<h1 style="color:blue">Hello World</h1>
+
+<table style="border:1px solid black;border-collapse: collapse;width:50%;text-align:center;margin:auto">
+ <thead>
+    <tr>
+        <th style="border:1px solid black;border-collapse: collapse;">Title</th>
+        <th style="border:1px solid black;border-collapse: collapse;">Body</th>
+        <th style="border:1px solid black;border-collapse: collapse;">Show Article</th>
+    </tr>
+ </thead>
+<tbody>
+<%@articles.each do |article|%>
+    <tr>
+        <td style="border:1px solid black;border-collapse: collapse;"><%= article.title%></td>
+        <td style="border:1px solid black;border-collapse: collapse;"><%= article.details%></td>
+        <td><a href="/articles/<%=article.id%>">Show Article</a></td>
+        
+    </tr>
+<%end%>
+</tbody>
+</table>
