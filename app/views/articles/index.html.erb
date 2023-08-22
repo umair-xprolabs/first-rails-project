@@ -1,21 +1,29 @@
-<h1 style="color:blue;text-align:center">Welcome to Articles Page</h1>
-
+<h1 style="color:blue;text-align:center">Hello World</h1>
+Our blogs has <%= Article.public_count%> articles and still counting
 <table style="border:1px solid black;border-collapse: collapse;width:50%;text-align:center;margin:auto">
  <thead>
     <tr>
         <th style="border:1px solid black;border-collapse: collapse;">Title</th>
         <th style="border:1px solid black;border-collapse: collapse;">Body</th>
         <th style="border:1px solid black;border-collapse: collapse;">Show Article</th>
+        <th style="border:1px solid black;border-collapse: collapse;">Edit Article</th>
+        <th style="border:1px solid black;border-collapse: collapse;">Delete Article</th>
     </tr>
  </thead>
 <tbody>
 <%@articles.each do |article|%>
+<% unless article.archived?%>
     <tr>
         <td style="border:1px solid black;border-collapse: collapse;"><%= article.title%></td>
         <td style="border:1px solid black;border-collapse: collapse;"><%= article.details%></td>
         <td style="border:1px solid black;border-collapse: collapse;"><%=link_to "Show Article", article%></td>
+        <td style="border:1px solid black;border-collapse: collapse;"><%= link_to "Edit Article", edit_article_path(article) %></td>
+        <td style="border:1px solid black;border-collapse: collapse;"><%= link_to "Delete Article", article_path(article), data:{turbo_method: :delete, turbo_confirm:"Do you wnat to delete this article?"} %></td>
         
     </tr>
+    <%end%>
 <%end%>
 </tbody>
 </table>
+<%= link_to "New Article", new_article_path %>
+ 

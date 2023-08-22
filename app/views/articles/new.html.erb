@@ -1,15 +1,3 @@
 <h1>Create New Article</h1>
 
-<%= form_with model: @article do |form|%>
-<div>
-<%= form.label :title%>
-<%= form.text_feild :title%>
-</div>
-<div>
-   <%= form.label :details%>
-<%= form.text_feild :details%> 
-</div>
-<div>
-<%=form.submit%>
-</div>
-<%end%>
+<%= render "form", article:@article%>

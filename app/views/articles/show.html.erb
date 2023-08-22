@@ -1,2 +1,14 @@
+<% flash.each do |msg| %>
+  <div >
+    <%= msg %>
+  </div>
+<% end %>
 <h1><%=@article.title%></h1>
 <p><%=@article.details%></p>
+<%=link_to "Back to Articles", root_path%>
+<%=link_to "Delete this Article", article_path(@article), data:{turbo_method: :delete, turbo_confirm:"Are you sure you want to delete this article"}%>
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a Comment</h2>
+<%=render 'comments/form'%>
