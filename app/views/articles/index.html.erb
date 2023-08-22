@@ -1,4 +1,4 @@
-<h1 style="color:blue">Hello World</h1>
+<h1 style="color:blue;text-align:center">Welcome to Articles Page</h1>
 
 <table style="border:1px solid black;border-collapse: collapse;width:50%;text-align:center;margin:auto">
  <thead>
@@ -13,7 +13,7 @@
     <tr>
         <td style="border:1px solid black;border-collapse: collapse;"><%= article.title%></td>
         <td style="border:1px solid black;border-collapse: collapse;"><%= article.details%></td>
-        <td style="border:1px solid black;border-collapse: collapse;"><a href="/articles/<%=article.id%>">Show Article</a></td>
+        <td style="border:1px solid black;border-collapse: collapse;"><%=link_to "Show Article", article%></td>
         
     </tr>
 <%end%>
