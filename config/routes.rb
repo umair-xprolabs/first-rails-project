@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "articles#index"
-  resources :articles do
-    resources :comments
+
+  scope '/admin' do
+    resources :articles do
+
+      resources :comments
+    end
   end
 
 end
